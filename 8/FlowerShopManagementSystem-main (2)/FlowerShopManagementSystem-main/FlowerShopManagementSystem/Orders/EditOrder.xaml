@@ -1,0 +1,251 @@
+﻿<Window x:Class="FlowerShopManagementSystem.Orders.EditOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        
+        xmlns:local="clr-namespace:FlowerShopManagementSystem"
+        xmlns:components="clr-namespace:FlowerShopManagementSystem.Resources"
+        mc:Ignorable="d"
+        Height="600" Width="1100" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True">
+
+    <Border Background="#F2F5F8" CornerRadius="10" BorderBrush="#FF008451" BorderThickness="2">
+        <Grid Margin="20 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <!--<RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>-->
+            </Grid.RowDefinitions>
+
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>-->
+
+
+            <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
+                <Border CornerRadius="50" BorderThickness="1.5" BorderBrush="#EFEFEF">
+                    <Ellipse Width="40" Height="40">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Images/shopping-bag.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+
+                <TextBlock Text="ORDER DETAILS" Foreground="#374655" FontSize="22" Margin="15 0 0 0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+            </StackPanel>
+
+            <Separator Grid.Row="1" Grid.ColumnSpan="2" Height="0.7" Margin="-20 20 -20 20" Background="#E1E6EB"/>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="20 10" Orientation="Vertical" Grid.Row="1">
+                        <TextBlock Text="Order ID" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                        <TextBox x:Name="tbxEditOrderID" FontWeight="Medium"/>
+
+                    </StackPanel>
+
+                    <StackPanel Margin="20 10" Grid.Row="2" Orientation="Vertical">
+                        <TextBlock Text="Customer Phone" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox x:Name="tbxEditCustomerPhone" FontWeight="Medium" PreviewTextInput="tbxEditCustomerPhone_PreviewTextInput"/>
+
+                            <Button Grid.Column="1" x:Name="btnEditFind" Style="{StaticResource findButton}" Cursor="Hand" Click="btnEditFind_Click" Margin="5 0 0 0">
+                                <icon:PackIconMaterial Kind="Magnify" Style="{StaticResource gridButtonIcon}" Height="20" Width="20"/>
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Margin="20 10"  Orientation="Vertical">
+                        <TextBlock Text="Employee ID" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8" />
+
+                        <TextBox x:Name="tbxEditEmployeeID" FontWeight="Medium" IsReadOnly="True"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="20 10" Grid.Row="3" Orientation="Vertical">
+                        <TextBlock Text="Customer Name" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                        <TextBox x:Name="tbxEditCustomerName" FontWeight="Medium" IsReadOnly="True"/>
+                    </StackPanel>
+
+                </Grid>
+
+
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                              x:Name="editOrderDetailsDataGrid" Grid.Row="0" LoadingRow="editOrderDetailsDataGrid_LoadingRow">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Margin" Value="0 4 0 0" />
+                                <Setter Property="Background" Value="#FFFFFF"/>
+                                <Setter Property="SnapsToDevicePixels" Value="true"/>
+                                <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="ValidationErrorTemplate">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <TextBlock Foreground="Red" Margin="2,0,0,0" Text="!" VerticalAlignment="Center"/>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type DataGridRow}">
+                                            <Border x:Name="DGR_Border" Padding="0 8" CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="0" SnapsToDevicePixels="True">
+                                                <SelectiveScrollingGrid>
+                                                    <SelectiveScrollingGrid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </SelectiveScrollingGrid.ColumnDefinitions>
+                                                    <SelectiveScrollingGrid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </SelectiveScrollingGrid.RowDefinitions>
+                                                    <DataGridCellsPresenter Grid.Column="1" ItemsPanel="{TemplateBinding ItemsPanel}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                    <DataGridDetailsPresenter Grid.Column="1" Grid.Row="1" SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Visibility="{TemplateBinding DetailsVisibility}"/>
+                                                    <DataGridRowHeader Grid.RowSpan="2" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical" Visibility="{Binding HeadersVisibility, Converter={x:Static DataGrid.HeadersVisibilityConverter}, ConverterParameter={x:Static DataGridHeadersVisibility.Row}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                                </SelectiveScrollingGrid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#e5e5e5"/>
+                                        <!--<Setter Property="Foreground" Value="#ffffff"/>-->
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#e5e5e5"/>
+                                        <!--<Setter Property="Foreground" Value="#ffffff"/>-->
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="true"/>
+                                            <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background" Value="#dfdfdf"/>
+                                    </MultiTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding sttSanPham}"/>
+
+                            <DataGridTemplateColumn Header="Product ID" IsReadOnly="True" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <!--<Border Width="25" Height="25" CornerRadius="50" Margin="0 10 0 0" Background="{Binding BgColor}">
+                                    <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
+                                </Border>-->
+
+                                            <TextBlock Text="{Binding productID}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Name" IsReadOnly="True" Width="*" Binding="{Binding productName}"/>
+                            <DataGridTextColumn Header="Quantity" IsReadOnly="True" Width="*" Binding="{Binding productQuantity}"/>
+                            <!--<DataGridTemplateColumn Header="Quantity" IsReadOnly="True" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <components:NumericUpDown MinValue="1" FontSize="18" Text="0" FontWeight="Medium"
+                                                                  Height="32" Width="72" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>-->
+                            <DataGridTextColumn Header="Price" IsReadOnly="True" Width="*" Binding="{Binding productPrice, StringFormat={}{0:C}}"/>
+
+                            <DataGridTextColumn Header="Total Money" IsReadOnly="True" Width="*" Binding="{Binding productTotalMoney, StringFormat={}{0:C}}"/>
+
+                            <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="btnEditRemoveProduct" Style="{StaticResource gridRemoveButton}" Cursor="Hand" Click="btnEditRemoveProduct_Click">
+                                                <icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                            </Button>
+
+
+
+                                            <!--<Button x:Name="btnDeleteOrder" Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0" Cursor="Hand" Click="btnDeleteSupplier_Click">
+                                    <icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                </Button>-->
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Grid Grid.Row="1" Margin="10 15 10 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="Total Money" FontWeight="SemiBold" FontSize="15" Margin="0 5 0 0"/>
+
+                            <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8" Margin="5 0 0 0">
+                                <TextBlock x:Name="txtblckTotalMoney" Padding="7 4 0 0"  FontSize="13" VerticalAlignment="Center" FontWeight="Bold" Height="25" Width="200" TextAlignment="Left"
+                                           Text="100$"/>
+                            </Border>
+                        </StackPanel>
+
+                        <Button x:Name="editChooseProductBtn" Content="Choose Products" FontWeight="SemiBold" Style="{StaticResource saveButton}" Height="30"
+                            FontSize="13" Click="editChooseProductBtn_Click" HorizontalAlignment="Right"  Grid.Column="1" Width="160"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnSaveOrder" Grid.Column="1" Grid.Row="5" Content="Save" HorizontalAlignment="Right" Margin="0 40 0 10" 
+                    Style="{StaticResource saveButton}" FontWeight="SemiBold" Cursor="Hand" Click="btnSaveOrder_Click"/>
+
+                <Button x:Name="btnBackEditOrder" Grid.Row="5" Content="Back" HorizontalAlignment="Left" Margin="0 40 0 10"
+                    Style="{StaticResource backButton}" FontWeight="SemiBold" Click="btnBackEditOrder_Click" Cursor="Hand"/>
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>

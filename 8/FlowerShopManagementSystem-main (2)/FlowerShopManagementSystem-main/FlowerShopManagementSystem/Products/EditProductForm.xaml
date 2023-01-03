@@ -1,0 +1,175 @@
+﻿<Window x:Class="FlowerShopManagementSystem.Products.EditProductForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerShopManagementSystem"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="600" Width="1100" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True">
+    <Border Background="#F2F5F8" CornerRadius="10" BorderBrush="#FF008451" BorderThickness="2">
+        <Grid Margin="20 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <!--<RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>-->
+            </Grid.RowDefinitions>
+
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>-->
+
+
+            <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
+                <Border CornerRadius="50" BorderThickness="1.5" BorderBrush="#EFEFEF">
+                    <Ellipse Width="40" Height="40">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Images/hibicus.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+
+                <TextBlock Text="PRODUCT DETAILS" Foreground="#374655" FontSize="22" Margin="15 0 0 0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+            </StackPanel>
+
+            <Separator Grid.Row="1" Grid.ColumnSpan="2" Height="0.7" Margin="-20 20 -20 20" Background="#E1E6EB"/>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="20 10" Orientation="Vertical">
+                        <TextBlock Text="Product ID" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                        <TextBox x:Name="tbxProductID" FontWeight="Medium" IsReadOnly="True"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="20 10" Grid.Row="1" Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Product Type" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                            <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                        </StackPanel>
+
+                        <TextBox x:Name="tbxEditProductType" FontWeight="Medium" TextChanged="tbxEditProductType_TextChanged"/>
+                    </StackPanel>
+
+
+
+                    <StackPanel Margin="20 10" Orientation="Vertical" Grid.Row="2">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Event" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                            <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                        </StackPanel>
+
+                        <TextBox x:Name="tbxEditEvent" FontWeight="Medium" TextChanged="tbxEditEvent_TextChanged"/>
+
+                    </StackPanel>
+
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="20 10"  Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Product Name" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8" />
+                            <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                        </StackPanel>
+
+                        <TextBox x:Name="tbxEditProductName" FontWeight="Medium" TextChanged="tbxEditProductName_TextChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="20 10" Grid.Row="1" Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Supplier" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                            <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                        </StackPanel>
+
+                        <ComboBox x:Name="cbbEditSuppier" Margin="0 3 0 0" Padding="5" Tag="null" FontSize="15"
+                              DropDownOpened="cbbEditSuppier_DropDownOpened"
+                              DropDownClosed="cbbEditSuppier_DropDownClosed"
+                              FontFamily="Sitka Subheading"
+                              FontWeight="SemiBold">
+                            <ComboBoxItem IsSelected="True">Sai Gon - Dam Sen</ComboBoxItem>
+                            <ComboBoxItem>Ho Thi Ky</ComboBoxItem>
+                            <ComboBoxItem>Cho hoa Hau Giang</ComboBoxItem>
+                            <ComboBoxItem>Cho hoa cong vien 23/9</ComboBoxItem>
+                            <ComboBoxItem>Ben Binh Dong</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Margin="20 10" Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Price" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                            <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                        </StackPanel>
+
+                        <TextBox x:Name="tbxEditProductPrice" FontWeight="Medium" PreviewTextInput="tbxEditProductPrice_PreviewTextInput"
+                                 TextChanged="tbxEditProductPrice_TextChanged"/>
+
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Grid.Column="2" Orientation="Vertical" Margin="20 10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="35 0 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Image" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                        </StackPanel>
+                        <Button Style="{StaticResource chevron}" Margin="10 -5 0 0" x:Name="editProductImageBtn"
+                                Click="editProductImageBtn_Click">
+                            <materialDesign:PackIcon Kind="Plus" Height="25" Width="25"/>
+                        </Button>
+                    </StackPanel>
+
+                    <Border CornerRadius="5"  Margin="0 10 0 0" Height="280">
+                        <Image  x:Name="editProductImage" Source="/Images/sunflower.png"/>
+                    </Border>
+
+                    <!--<Button x:Name="editProductImageBtn" Content="Click to upload" FontWeight="SemiBold" Style="{StaticResource saveButton}" Margin="0 40 0 0" Height="20" FontSize="12" Click="editProductImageBtn_Click"/>-->
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Please input full information!"
+                        x:Name="notify"
+                        Foreground="Red"
+                        FontSize="13"
+                        VerticalAlignment="Top"
+                        FontWeight="SemiBold"
+                        Margin="20 -40 0 0"/>
+
+                <Button x:Name="btnSaveProduct" Grid.Column="1" Grid.Row="5" Content="Save" HorizontalAlignment="Right" Margin="0 40 0 10" 
+                    Style="{StaticResource saveButton}" FontWeight="SemiBold" Cursor="Hand" Click="btnSaveProduct_Click"/>
+
+                <Button x:Name="btnBackEditProduct" Grid.Row="5" Content="Back" HorizontalAlignment="Left" Margin="0 40 0 10"
+                    Style="{StaticResource backButton}" FontWeight="SemiBold" Click="btnBackEditProduct_Click" Cursor="Hand"/>
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>

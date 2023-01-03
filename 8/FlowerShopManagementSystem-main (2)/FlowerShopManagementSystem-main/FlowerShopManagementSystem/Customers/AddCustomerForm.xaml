@@ -1,0 +1,198 @@
+﻿<Window x:Class="FlowerShopManagementSystem.Customers.AddCustomerForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerShopManagementSystem"
+        xmlns:sysglb="clr-namespace:System.Globalization;assembly=mscorlib"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="600" Width="740" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True">
+    <Border Background="#F2F5F8" CornerRadius="10" BorderBrush="#FF008451" BorderThickness="2">
+        <Grid Margin="20 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
+                <Border CornerRadius="50" BorderThickness="1.5" BorderBrush="#EFEFEF">
+                    <Ellipse Width="40" Height="40">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Images/Customer Image.jpg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+
+                <TextBlock Text="ADD NEW CUSTOMER" Foreground="#374655" FontSize="22" Margin="15 0 0 0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+            </StackPanel>
+
+            <Separator Grid.Row="1" Grid.ColumnSpan="2" Height="0.7" Margin="-20 20 -20 20" Background="#E1E6EB"/>
+
+            <StackPanel Margin="20 10" Grid.Column="0" Grid.Row="2" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Customer Name" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <TextBox x:Name="tbxCustomerName" FontWeight="Medium" TextChanged="tbxCustomerName_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Phone Number" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <TextBox x:Name="tbxCustomerPhone" FontWeight="Medium" PreviewTextInput="tbxCustomerPhone_PreviewTextInput"
+                         TextChanged="tbxCustomerPhone_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="0" Grid.Row="3" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="House Number" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <TextBox x:Name="tbxCustomerHouseNumber" FontWeight="Medium" TextChanged="tbxCustomerHouseNumber_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="1" Grid.Row="3" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Street" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <TextBox x:Name="tbxCustomerStreet" FontWeight="Medium" TextChanged="tbxCustomerStreet_TextChanged"/>
+            </StackPanel>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Margin="20 10 -40 10" Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="District" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                        <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                    </StackPanel>
+
+                    <ComboBox x:Name="cbbDistrict" Padding="5" Tag="null" FontSize="15"
+                              DropDownOpened="cbbDistrict_DropDownOpened"
+                              DropDownClosed="cbbDistrict_DropDownClosed"
+                              FontFamily="Sitka Subheading"
+                              FontWeight="SemiBold">
+                        <ComboBoxItem IsSelected="True">TP.Thu Duc</ComboBoxItem>
+                        <ComboBoxItem>Q3</ComboBoxItem>
+                        <ComboBoxItem>Q4</ComboBoxItem>
+                        <ComboBoxItem>Q5</ComboBoxItem>
+                        <ComboBoxItem>Q6</ComboBoxItem>
+                        <ComboBoxItem>Q7</ComboBoxItem>
+                        <ComboBoxItem>Q8</ComboBoxItem>
+                        <ComboBoxItem>Q10</ComboBoxItem>
+                        <ComboBoxItem>Q11</ComboBoxItem>
+                        <ComboBoxItem>Q12</ComboBoxItem>
+                        <ComboBoxItem>Q.Binh Tan</ComboBoxItem>
+                        <ComboBoxItem>Q.Binh Thanh</ComboBoxItem>
+                        <ComboBoxItem>Q.Go Vap</ComboBoxItem>
+                        <ComboBoxItem>Q.Phu Nhuan</ComboBoxItem>
+                        <ComboBoxItem>Q.Tan Binh</ComboBoxItem>
+                        <ComboBoxItem>Q.Tan Phu</ComboBoxItem>
+                        <ComboBoxItem>H.Binh Chanh</ComboBoxItem>
+                        <ComboBoxItem>H.Can Gio</ComboBoxItem>
+                        <ComboBoxItem>H.Cu Chi</ComboBoxItem>
+                        <ComboBoxItem>H.Hoc Mon</ComboBoxItem>
+                        <ComboBoxItem>H.Nha Be</ComboBoxItem>
+                    </ComboBox>
+
+                </StackPanel>
+
+                <StackPanel Margin="80 10 -100 10" Orientation="Vertical" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="City" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                        <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                    </StackPanel>
+
+                    <ComboBox x:Name="cbbCity" Padding="5" Tag="null" FontSize="15"
+                              DropDownOpened="cbbCity_DropDownOpened"
+                              DropDownClosed="cbbCity_DropDownClosed"
+                              FontFamily="Sitka Subheading"
+                              FontWeight="SemiBold">
+                        <ComboBoxItem IsSelected="True">TPHCM</ComboBoxItem>
+                    </ComboBox>
+
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Margin="134 10 20 10" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Province" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <ComboBox x:Name="cbbProvince" Padding="5" Tag="null" FontSize="15"
+                              DropDownOpened="cbbProvince_DropDownOpened"
+                              DropDownClosed="cbbProvince_DropDownClosed"
+                              FontFamily="Sitka Subheading"
+                              FontWeight="SemiBold">
+                    <ComboBoxItem IsSelected="True">(Empty)</ComboBoxItem>
+                </ComboBox>
+
+
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="1" Grid.Row="5" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Registration Date" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <!--<TextBox x:Name="tbxCustomerRegistrationDate" FontWeight="Medium"/>-->
+
+                <DatePicker x:Name="dpkRegistrationDate" Focusable="False" materialDesign:HintAssist.Hint="Select Working Date"
+                                    FontSize="15" FontFamily="Sitka Subheading" FontWeight="SemiBold" CalendarOpened="dpkRegistrationDate_CalendarOpened">
+                    <DatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="IsReadOnly" Value="True"/>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="0" Grid.Row="5" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Sales" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <TextBox x:Name="tbxCustomerSales" FontWeight="Medium" PreviewTextInput="tbxCustomerSales_PreviewTextInput"
+                         TextChanged="tbxCustomerSales_TextChanged"/>
+            </StackPanel>
+
+            <TextBlock Text="Please input full information!"
+                        x:Name="notify"
+                       Grid.Row="6"
+                        Foreground="Red"
+                        FontSize="13"
+                        VerticalAlignment="Top"
+                        FontWeight="SemiBold"
+                        Margin="20 0 0 0"/>
+
+            <Button x:Name="btnAddCustomer" Grid.Column="1" Grid.Row="6" Content="Add" HorizontalAlignment="Right" Margin="0 40 0 10" Style="{StaticResource saveButton}" FontWeight="SemiBold" Cursor="Hand" Click="btnAddCustomer_Click"/>
+
+            <Button x:Name="btnBackCustomer" Grid.Row="6" Content="Back" HorizontalAlignment="Left" Margin="0 40 0 10" Style="{StaticResource backButton}" FontWeight="SemiBold" Click="btnBackCustomer_Click" Cursor="Hand"/>
+
+        </Grid>
+    </Border>
+</Window>

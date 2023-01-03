@@ -1,0 +1,139 @@
+﻿<Window x:Class="FlowerShopManagementSystem.Products.ViewProductDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerShopManagementSystem"
+        mc:Ignorable="d"
+        Height="600" Width="1100" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True">
+    <Border Background="#F2F5F8" CornerRadius="10" BorderBrush="#FF008451" BorderThickness="2">
+        <Grid Margin="20 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <!--<RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>-->
+            </Grid.RowDefinitions>
+
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>-->
+
+
+            <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
+                <Border CornerRadius="50" BorderThickness="1.5" BorderBrush="#EFEFEF">
+                    <Ellipse Width="40" Height="40">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Images/hibicus.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+
+                <TextBlock Text="PRODUCT DETAILS" Foreground="#374655" FontSize="22" Margin="15 0 0 0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+            </StackPanel>
+
+            <Separator Grid.Row="1" Grid.ColumnSpan="2" Height="0.7" Margin="-20 20 -20 20" Background="#E1E6EB"/>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="20 10" Orientation="Vertical">
+                        <TextBlock Text="Product ID" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                        <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                            <TextBlock x:Name="txtblckProductID" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Margin="20 10" Grid.Row="1" Orientation="Vertical">
+                        <TextBlock Text="Product Type" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                        <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                            <TextBlock x:Name="txtblckProductType" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                        </Border>
+                    </StackPanel>
+
+
+
+                    <StackPanel Margin="20 10" Orientation="Vertical" Grid.Row="2">
+                        <TextBlock Text="Event" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                        <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                            <TextBlock x:Name="txtblckEvent" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                        </Border>
+
+                    </StackPanel>
+
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="20 10"  Orientation="Vertical">
+                        <TextBlock Text="Product Name" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8" />
+
+                        <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                            <TextBlock x:Name="txtblckProductName" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Margin="20 10" Grid.Row="1" Orientation="Vertical">
+                        <TextBlock Text="Supplier" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                        <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                            <TextBlock x:Name="txtblckProductSupplier" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Margin="20 10" Orientation="Vertical">
+                        <TextBlock Text="Price" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                        <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                            <TextBlock x:Name="txtblckProductPrice" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                        </Border>
+
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Grid.Column="2" Orientation="Vertical" Margin="20 10">
+                    <TextBlock Text="Image" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    <Border CornerRadius="5"  Margin="0 10 0 0" Height="280">
+                        <Image  x:Name="viewProductImage" Source="/Images/sunflower.png"/>
+                    </Border>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnBackViewProduct" Content="Back" HorizontalAlignment="Left" Margin="0 40 0 10"
+                    Style="{StaticResource backButton}" FontWeight="SemiBold" Click="btnBackViewProduct_Click" Cursor="Hand"/>
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>

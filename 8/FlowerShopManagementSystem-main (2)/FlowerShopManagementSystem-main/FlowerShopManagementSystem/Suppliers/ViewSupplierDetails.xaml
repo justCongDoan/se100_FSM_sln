@@ -1,0 +1,116 @@
+﻿<Window x:Class="FlowerShopManagementSystem.Suppliers.ViewSupplierDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerShopManagementSystem"
+        mc:Ignorable="d"
+        Height="500" Width="740" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True">
+    <Border Background="#F2F5F8" CornerRadius="10" BorderBrush="#FF008451" BorderThickness="2">
+        <Grid Margin="20 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
+                <Border CornerRadius="50" BorderThickness="1.5" BorderBrush="#EFEFEF">
+                    <Ellipse Width="40" Height="40">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Images/Supplier image.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+
+                <TextBlock Text="SUPPLIERS DETAILS" Foreground="#374655" FontSize="22" Margin="15 0 0 0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+            </StackPanel>
+
+            <Separator Grid.Row="1" Grid.ColumnSpan="2" Height="0.7" Margin="-20 20 -20 20" Background="#E1E6EB"/>
+
+            <StackPanel Margin="20 10" Grid.Column="0" Grid.Row="2" Orientation="Vertical">
+                <TextBlock Text="Supplier ID" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                <!--<TextBox x:Name="txtblckCustomerName" FontWeight="Medium"/>-->
+
+                <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                    <TextBlock x:Name="txtblckSupplierID" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+                <TextBlock Text="Supplier Name" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                <!--<TextBox x:Name="txtblckPhoneNumber" FontWeight="Medium"/>-->
+
+                <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                    <TextBlock x:Name="txtblckSupplierName" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="0" Grid.Row="3" Orientation="Vertical">
+                <TextBlock Text="Phone Number" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                <!--<TextBox x:Name="txtblckHouseNumber" FontWeight="Medium"/>-->
+
+                <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                    <TextBlock x:Name="txtblckSupplierPhoneNumber" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="1" Grid.Row="3" Orientation="Vertical">
+                <TextBlock Text="Street" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                <!--<TextBox x:Name="txtblckStreet" FontWeight="Medium"/>-->
+
+                <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                    <TextBlock x:Name="txtblckSupplierStreet" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                </Border>
+            </StackPanel>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Margin="20 10 -40 10" Orientation="Vertical">
+                    <TextBlock Text="Ward" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                    <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                        <TextBlock x:Name="txtblckSupplierWard" Padding="10 8" FontSize="13" VerticalAlignment="Center"  FontWeight="Medium"/>
+                    </Border>
+
+                </StackPanel>
+
+                <StackPanel Margin="80 10 -100 10" Orientation="Vertical" Grid.Column="1">
+                    <TextBlock Text="District" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                    <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                        <TextBlock x:Name="txtblckSupplierDistrict" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Margin="134 10 20 10" Orientation="Vertical">
+                <TextBlock Text="City" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                <Border CornerRadius="5" Background="Transparent" BorderThickness="1" BorderBrush="#FFA8A8A8">
+                    <TextBlock x:Name="txtblckSupplierCity" Padding="10 8" FontSize="13" VerticalAlignment="Center" FontWeight="Medium"/>
+                </Border>
+            </StackPanel>
+
+
+            <Button x:Name="btnBackSupplierView" Grid.Row="5" Content="Back" HorizontalAlignment="Left" Margin="0 40 0 10" Style="{StaticResource backButton}" FontWeight="SemiBold" Cursor="Hand" Click="btnBackSupplierView_Click"/>
+
+        </Grid>
+    </Border>
+</Window>

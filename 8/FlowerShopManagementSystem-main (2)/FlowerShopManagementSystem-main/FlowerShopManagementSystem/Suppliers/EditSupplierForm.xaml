@@ -1,0 +1,188 @@
+﻿<Window x:Class="FlowerShopManagementSystem.Suppliers.EditSupplierForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerShopManagementSystem"
+        mc:Ignorable="d"
+        Height="500" Width="740" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True">
+    <Border Background="#F2F5F8" CornerRadius="10" BorderBrush="#FF008451" BorderThickness="2">
+        <Grid Margin="20 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
+                <Border CornerRadius="50" BorderThickness="1.5" BorderBrush="#EFEFEF">
+                    <Ellipse Width="40" Height="40">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Images/Supplier image.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+
+                <TextBlock Text="SUPPLIERS DETAILS" Foreground="#374655" FontSize="22" Margin="15 0 0 0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+            </StackPanel>
+
+            <Separator Grid.Row="1" Grid.ColumnSpan="2" Height="0.7" Margin="-20 20 -20 20" Background="#E1E6EB"/>
+
+            <StackPanel Margin="20 10" Grid.Column="0" Grid.Row="2" Orientation="Vertical">
+                <TextBlock Text="Supplier ID" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+
+                <TextBox x:Name="tbxEditSupplierID" FontWeight="Medium" IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Supplier Name" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <TextBox x:Name="tbxEditSupplierName" FontWeight="Medium" TextChanged="tbxEditSupplierName_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="0" Grid.Row="3" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Phone Number" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <TextBox x:Name="tbxEditSupplierPhoneNumber" FontWeight="Medium" PreviewTextInput="tbxEditSupplierPhoneNumber_PreviewTextInput"
+                         TextChanged="tbxEditSupplierPhoneNumber_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Margin="20 10" Grid.Column="1" Grid.Row="3" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Street" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <TextBox x:Name="tbxEditSupplierStreet" FontWeight="Medium" TextChanged="tbxEditSupplierStreet_TextChanged"/>
+            </StackPanel>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Margin="20 10 -40 10" Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Ward" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                        <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                    </StackPanel>
+
+                    <ComboBox x:Name="cbbEditSupplierWard" Padding="5" Tag="null" FontSize="15"
+                              DropDownOpened="cbbEditSupplierWard_DropDownOpened"
+                              DropDownClosed="cbbEditSupplierWard_DropDownClosed"
+                              FontFamily="Sitka Subheading"
+                              FontWeight="SemiBold">
+                        <ComboBoxItem IsSelected="True">P1</ComboBoxItem>
+                        <ComboBoxItem>P2</ComboBoxItem>
+                        <ComboBoxItem>P3</ComboBoxItem>
+                        <ComboBoxItem>P4</ComboBoxItem>
+                        <ComboBoxItem>P5</ComboBoxItem>
+                        <ComboBoxItem>P6</ComboBoxItem>
+                        <ComboBoxItem>P7</ComboBoxItem>
+                        <ComboBoxItem>P8</ComboBoxItem>
+                        <ComboBoxItem>P9</ComboBoxItem>
+                        <ComboBoxItem>P10</ComboBoxItem>
+                        <ComboBoxItem>P11</ComboBoxItem>
+                        <ComboBoxItem>P12</ComboBoxItem>
+                        <ComboBoxItem>P13</ComboBoxItem>
+                        <ComboBoxItem>P14</ComboBoxItem>
+                        <ComboBoxItem>P15</ComboBoxItem>
+                        <ComboBoxItem>P16</ComboBoxItem>
+                        <ComboBoxItem>P17</ComboBoxItem>
+                        <ComboBoxItem>P18</ComboBoxItem>
+                        <ComboBoxItem>P19</ComboBoxItem>
+                        <ComboBoxItem>P20</ComboBoxItem>
+                        <ComboBoxItem>P21</ComboBoxItem>
+                        <ComboBoxItem>P22</ComboBoxItem>
+                        <ComboBoxItem>P23</ComboBoxItem>
+                        <ComboBoxItem>P24</ComboBoxItem>
+                        <ComboBoxItem>P25</ComboBoxItem>
+                        <ComboBoxItem>P26</ComboBoxItem>
+                        <ComboBoxItem>P27</ComboBoxItem>
+                        <ComboBoxItem>P28</ComboBoxItem>
+                    </ComboBox>
+
+                </StackPanel>
+
+                <StackPanel Margin="80 10 -100 10" Orientation="Vertical" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="District" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                        <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                    </StackPanel>
+
+                    <ComboBox x:Name="cbbEditSupplierDistrict" Padding="5" Tag="null" FontSize="15"
+                              DropDownOpened="cbbEditSupplierDistrict_DropDownOpened"
+                              DropDownClosed="cbbEditSupplierDistrict_DropDownClosed"
+                              FontFamily="Sitka Subheading"
+                              FontWeight="SemiBold">
+                        <ComboBoxItem IsSelected="True">TP.Thu Duc</ComboBoxItem>
+                        <ComboBoxItem>Q3</ComboBoxItem>
+                        <ComboBoxItem>Q4</ComboBoxItem>
+                        <ComboBoxItem>Q5</ComboBoxItem>
+                        <ComboBoxItem>Q6</ComboBoxItem>
+                        <ComboBoxItem>Q7</ComboBoxItem>
+                        <ComboBoxItem>Q8</ComboBoxItem>
+                        <ComboBoxItem>Q10</ComboBoxItem>
+                        <ComboBoxItem>Q11</ComboBoxItem>
+                        <ComboBoxItem>Q12</ComboBoxItem>
+                        <ComboBoxItem>Q.Binh Tan</ComboBoxItem>
+                        <ComboBoxItem>Q.Binh Thanh</ComboBoxItem>
+                        <ComboBoxItem>Q.Go Vap</ComboBoxItem>
+                        <ComboBoxItem>Q.Phu Nhuan</ComboBoxItem>
+                        <ComboBoxItem>Q.Tan Binh</ComboBoxItem>
+                        <ComboBoxItem>Q.Tan Phu</ComboBoxItem>
+                        <ComboBoxItem>H.Binh Chanh</ComboBoxItem>
+                        <ComboBoxItem>H.Can Gio</ComboBoxItem>
+                        <ComboBoxItem>H.Cu Chi</ComboBoxItem>
+                        <ComboBoxItem>H.Hoc Mon</ComboBoxItem>
+                        <ComboBoxItem>H.Nha Be</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Margin="134 10 20 10" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="City" Foreground="#97A5B4" FontSize="13" Margin="0 0 0 8"/>
+                    <TextBlock Text="*" Foreground="Red" Margin="3 0 0 0"/>
+                </StackPanel>
+
+                <ComboBox x:Name="cbbEditSuppierCity" Padding="5" Tag="null" FontSize="15"
+                              DropDownOpened="cbbEditSuppierCity_DropDownOpened"
+                              DropDownClosed="cbbEditSuppierCity_DropDownClosed"
+                              FontFamily="Sitka Subheading"
+                              FontWeight="SemiBold">
+                    <ComboBoxItem IsSelected="True">TPHCM</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <TextBlock Text="Please input full information!"
+                        x:Name="notify"
+                       Grid.Row="5"
+                        Foreground="Red"
+                        FontSize="13"
+                        VerticalAlignment="Top"
+                        FontWeight="SemiBold"
+                        Margin="20 0 0 0"/>
+
+            <Button x:Name="btnEditSaveSuppier" Grid.Column="1" Grid.Row="5" Content="Save" HorizontalAlignment="Right" Margin="0 40 0 10" Style="{StaticResource saveButton}" FontWeight="SemiBold" Cursor="Hand" Click="btnEditSaveSuppier_Click"/>
+
+            <Button x:Name="btnEditBackSupplier" Grid.Row="5" Content="Back" HorizontalAlignment="Left" Margin="0 40 0 10" Style="{StaticResource backButton}" FontWeight="SemiBold" Cursor="Hand" Click="btnEditBackSupplier_Click"/>
+
+        </Grid>
+    </Border>
+</Window>
