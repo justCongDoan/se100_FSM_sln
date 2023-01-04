@@ -64,7 +64,7 @@
                                 FontWeight="Bold" 
                                 Foreground="White" />
                     <TextBlock  x:Name="tblckRevenueThisMonth"
-                                Text="12/2022"
+                                Text="1/2023"
                                 Grid.Row="2"
                                 HorizontalAlignment="Left"
                                 Margin="20,0,0,0" 
@@ -167,7 +167,7 @@
                                 FontWeight="Bold" 
                                 Foreground="White" />
                     <TextBlock  x:Name="tblckOrdersThisMonth"
-                                Text="12/2022"
+                                Text="1/2023"
                                 Grid.Row="2"
                                 HorizontalAlignment="Left"
                                 Margin="20,0,0,0" 
@@ -202,8 +202,8 @@
                               Cursor="Hand"
                               DropDownClosed="cbbChooseYear_DropDownClosed">
                         
-                        <ComboBoxItem Content="2022" IsSelected="True"/>
-                        <ComboBoxItem Content="2021"/>
+                        <ComboBoxItem Content="2023"/>
+                        <ComboBoxItem Content="2022"/>
                     </ComboBox>
 
                     <Wpf:CartesianChart x:Name="shopRevenueChart" LegendLocation="Bottom" Grid.Row="1">
