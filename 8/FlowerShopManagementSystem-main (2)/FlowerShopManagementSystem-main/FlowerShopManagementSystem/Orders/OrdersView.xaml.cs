@@ -47,7 +47,7 @@ namespace FlowerShopManagementSystem.Orders
         {
             CreateNewOrder createNewOrder = new CreateNewOrder();
             createNewOrder.ShowDialog();
-            //ReloadData(hoadons);
+            ReloadData(hoadons);
         }
 
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)

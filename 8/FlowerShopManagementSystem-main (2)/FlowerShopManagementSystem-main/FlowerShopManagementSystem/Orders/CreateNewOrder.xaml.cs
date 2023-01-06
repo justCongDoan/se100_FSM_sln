@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlowerShopManagementSystem.Dashboard;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlClient;
@@ -51,6 +52,7 @@ namespace FlowerShopManagementSystem.Orders
 
         private void chooseProductBtn_Click(object sender, RoutedEventArgs e)
         {
+            DashboardView.isOneProdOnly = false;
             ChooseProduct chooseProduct = new ChooseProduct();
             chooseProduct.ShowDialog();
             ReloadData(cTHDs);
@@ -89,12 +91,34 @@ namespace FlowerShopManagementSystem.Orders
 
         private void btnCreateOrder_Click(object sender, RoutedEventArgs e)
         {
-            AddInvoice();
-            //AddListOfInvoiceDetails();
-            //RemoveTempData();
-            AddListOfInvoiceDetails();
-            MessageBox.Show("Done!", "Message:", MessageBoxButton.OK, MessageBoxImage.Information);
-            Close();
+            if (tbxEmployeeID.Text == "" || tbxOrderID.Text == "" || tbxCustomerPhone.Text == ""
+            || tbxCustomerName.Text == "")
+            {
+                notify.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                if (DashboardView.isOneProdOnly)
+                {
+                    AddInvoice1();
+                    //AddListOfInvoiceDetails();
+                    //RemoveTempData();
+                    AddListOfInvoiceDetails1();
+                    MessageBox.Show("Done!", "Message:", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Close();
+                    notify.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    AddInvoice2();
+                    //AddListOfInvoiceDetails();
+                    //RemoveTempData();
+                    AddListOfInvoiceDetails2();
+                    MessageBox.Show("Done!", "Message:", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Close();
+                    notify.Visibility = Visibility.Hidden;
+                }
+            }
         }
 
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -231,7 +255,14 @@ namespace FlowerShopManagementSystem.Orders
             try
             {
                 //cTHDs = new List<CTHD>();
-                cTHDs = ChooseProduct.cthdList;
+                if (ChooseProduct.isListEmpty)
+                {
+                    cTHDs = new List<CTHD>();
+                }
+                else
+                {
+                    cTHDs = ChooseProduct.cthdList;
+                }
                 LoadData(cTHDs);
                 //Database results1 = new Database("RESULT", "select sum(TRIGIA) as TOTALPRICE from TEMPDATA_CTHD");
                 //long total = long.Parse(results1.Rows[0][0].ToString());
@@ -287,7 +318,7 @@ namespace FlowerShopManagementSystem.Orders
             productIn4.ShowDialog();
         }
 
-        private void AddInvoice()
+        private void AddInvoice1()
         {
             if(ChooseProduct.cthdList == null && cTHDs == null)
             {
@@ -305,6 +336,63 @@ namespace FlowerShopManagementSystem.Orders
                 }
             }
             
+        }
+
+        private void AddInvoice2()
+        {
+            //if(ChooseProduct.cthdList == null && cTHDs == null)
+            //{
+            //    MessageBox.Show("The order must not be empty!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //}
+            //else
+            //{
+            //    if (cTHDs != null)
+            //    {
+            //        Add_cTHDs(cTHDs);
+            //    }
+            //    else if (ChooseProduct.cthdList != null)
+            //    {
+            //        Add_cthdList(ChooseProduct.cthdList);
+            //    }
+            //}
+            if (ChooseProduct.cthdList == null)
+            {
+                MessageBox.Show("The order must not be empty!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                string order_id = tbxOrderID.Text.ToString(),
+                customer_phone = tbxCustomerPhone.Text.ToString(),
+                employee_id = tbxEmployeeID.Text.ToString();
+                double totalMoney = 0;
+                foreach (var item in ChooseProduct.cthdList)
+                {
+                    totalMoney += item.productTotalMoney;
+                }
+                string strTotalMoney = totalMoney.ToString();
+                string order_status = "Unpaid";
+                try
+                {
+                    using (var sqlConnection = new SqlConnection(Database.connection))
+                    using (var cmd = new SqlDataAdapter())
+                    using (var insertCommand = new SqlCommand("insert into HOA_DON(MAHD, NGHD, SODT_KH, MANV, TRIGIA, TINHTRANG) " +
+                        "values ('" + order_id + "', '" + DateTime.Now.ToString() + "', '" + customer_phone + "', '" + employee_id + "', '" + strTotalMoney + "', '" + order_status + "')"))
+                    {
+                        insertCommand.Connection = sqlConnection;
+                        cmd.InsertCommand = insertCommand;
+                        sqlConnection.Open();
+                        cmd.InsertCommand.ExecuteNonQuery();
+                    }
+                    //MessageBox.Show("Done!", "Message:", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //Close();
+                    //AddListOfInvoiceDetails();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:\n" + ex.Message, "Error alert!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
         }
 
         private void Add_cthdList(List<CTHD> cthdList)
@@ -375,7 +463,7 @@ namespace FlowerShopManagementSystem.Orders
             }
         }
 
-        private void AddListOfInvoiceDetails()
+        private void AddListOfInvoiceDetails1()
         {
             if (ChooseProduct.cthdList == null && cTHDs == null)
             {
@@ -399,6 +487,48 @@ namespace FlowerShopManagementSystem.Orders
                 }
             }
             
+            //for (int i = 0; i < cTHDs.Count; i++)
+            //{
+            //    AddInvoiceDetails(cTHDs[i]);
+            //}
+        }
+
+        private void AddListOfInvoiceDetails2()
+        {
+            //if (ChooseProduct.cthdList == null && cTHDs == null)
+            //{
+            //    MessageBox.Show("Cannot add an empty list!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //}
+            //else
+            //{
+            //    if(cTHDs != null)
+            //    {
+            //        foreach (var item in cTHDs)
+            //        {
+            //            AddInvoiceDetails(item);
+            //        }
+            //    }
+            //    else if (ChooseProduct.cthdList != null)
+            //    {
+            //        foreach (var item in ChooseProduct.cthdList)
+            //        {
+            //            AddInvoiceDetails(item);
+            //        }
+            //    }
+            //}
+
+            if (ChooseProduct.cthdList == null)
+            {
+                MessageBox.Show("Cannot add an empty list!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                foreach (var item in ChooseProduct.cthdList)
+                {
+                    AddInvoiceDetails(item);
+                }
+            }
+
             //for (int i = 0; i < cTHDs.Count; i++)
             //{
             //    AddInvoiceDetails(cTHDs[i]);

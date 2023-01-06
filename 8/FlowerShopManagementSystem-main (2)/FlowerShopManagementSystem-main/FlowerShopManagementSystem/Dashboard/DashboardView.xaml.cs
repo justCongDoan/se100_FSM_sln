@@ -22,12 +22,14 @@ namespace FlowerShopManagementSystem.Dashboard
     /// </summary>
     public partial class DashboardView : Page
     {
+        public static bool isOneProdOnly;
         List<Product> products = new List<Product>();
         static int stt = 1;
         Resources.PagingCollectionView view;
         public DashboardView()
         {
             InitializeComponent();
+            isOneProdOnly = false;
 
             //List<filterButton> filters = new List<filterButton>();
 
@@ -228,6 +230,7 @@ namespace FlowerShopManagementSystem.Dashboard
 
         private void btnShopping_Click(object sender, RoutedEventArgs e)
         {
+            isOneProdOnly = true;
             Orders.CreateNewOrder newOrder = new Orders.CreateNewOrder();
             Button btn = sender as Button;
             Product ct = btn.DataContext as Product;

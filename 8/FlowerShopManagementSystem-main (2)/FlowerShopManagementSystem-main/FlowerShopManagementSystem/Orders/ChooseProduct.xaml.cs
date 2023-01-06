@@ -27,10 +27,13 @@ namespace FlowerShopManagementSystem.Orders
         public static CTHD selectedCTHD;
         public static List<CTHD> cthdList;
         public static int stt = 0;
+        public static bool isListEmpty;
         //public static double total;
         public ChooseProduct()
         {
             InitializeComponent();
+
+            isListEmpty = false;
 
             products = new List<Product>();
 
@@ -72,6 +75,10 @@ namespace FlowerShopManagementSystem.Orders
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (cthdList == null)
+            {
+                isListEmpty = true;
+            }
             Close();
         }
 
