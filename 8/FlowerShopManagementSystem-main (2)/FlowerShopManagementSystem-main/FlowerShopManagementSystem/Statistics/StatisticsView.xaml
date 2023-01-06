@@ -234,7 +234,7 @@
                               Cursor="Hand"
                               DropDownClosed="cbbChooseEmployee_DropDownClosed">
 
-                        <ComboBoxItem Content="Phan Nhat Lam"/>
+                        <ComboBoxItem Content="Phan Nhat Lam" IsSelected="True"/>
                         <ComboBoxItem Content="Nguyen Cong Doan"/>
                     </ComboBox>
 
