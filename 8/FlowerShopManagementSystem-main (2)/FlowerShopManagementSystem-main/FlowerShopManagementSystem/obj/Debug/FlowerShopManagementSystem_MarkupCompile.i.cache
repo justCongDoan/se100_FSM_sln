@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\congd\Desktop\nghịch-ing\8\FlowerShopManagementSystem-main (2)\FlowerShopManagementSystem-main\FlowerShopManagementSystem\obj\Debug\
+C:\Users\congd\Desktop\gitHub1\8\FlowerShopManagementSystem-main (2)\FlowerShopManagementSystem-main\FlowerShopManagementSystem\obj\Debug\
 FlowerShopManagementSystem
 none
 false
 DEBUG;TRACE
-C:\Users\congd\Desktop\nghịch-ing\8\FlowerShopManagementSystem-main (2)\FlowerShopManagementSystem-main\FlowerShopManagementSystem\App.xaml
+C:\Users\congd\Desktop\gitHub1\8\FlowerShopManagementSystem-main (2)\FlowerShopManagementSystem-main\FlowerShopManagementSystem\App.xaml
 33-237851531
 
 41-1881271282
-261466862433
+26212146495
 Accounts\AddAccountForm.xaml;Accounts\EditAccountForm.xaml;Accounts\ViewAccountDetails.xaml;Dashboard\ViewDashboardProduct.xaml;NotificationBox\CannotDeleteBox.xaml;NotificationBox\LogoutConfirmationBox.xaml;Customers\AddCustomerForm.xaml;Accounts\AccountsView.xaml;Customers\CustomersView.xaml;Customers\EditCustomerForm.xaml;Customers\ViewCustomerDetails.xaml;Dashboard\DashboardView.xaml;NotificationBox\DeleteConfirmationBox.xaml;Login.xaml;MainWindow.xaml;NotificationBox\PaymentConfirmation.xaml;Orders\ChooseProduct.xaml;Orders\CreateNewOrder.xaml;Orders\EditOrder.xaml;Orders\Invoice.xaml;Orders\OrdersView.xaml;Orders\ProductIn4.xaml;Orders\ViewOrder.xaml;Products\AddProductForm.xaml;Products\EditProductForm.xaml;Products\ProductsView.xaml;Products\ViewProductDetails.xaml;Resources\NumericUpDown.xaml;Statistics\StatisticsView.xaml;Suppliers\AddSupplierForm.xaml;Suppliers\EditSupplierForm.xaml;Suppliers\SuppliersView.xaml;Suppliers\ViewSupplierDetails.xaml;
 
-True
+False
 
